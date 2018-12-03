@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TodoInput from './TodoInput'
+import Todos from './Todos'
 
 export default class TodoList extends Component {
   state = {todos: []}
@@ -11,7 +12,7 @@ export default class TodoList extends Component {
     return (
       <div>
         <TodoInput onNewTodoAdded={this.addNewTodo}/>
-        {this.state.todos.map((todo, i) => <div key={i}>{todo}</div>)}
+        <Todos todos={this.state.todos}/>
       </div>
     )
   }

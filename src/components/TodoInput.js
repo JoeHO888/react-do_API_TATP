@@ -8,7 +8,7 @@ export default class TodoInput extends Component {
   }
   dispatch = () => {
     this.props.onNewTodoAdded(this.state.input)
-    this.setState({ input: '' })
+    this.setState({input: ''})
   }
   render() {
     return (
