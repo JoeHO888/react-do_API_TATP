@@ -11,7 +11,7 @@ export default class TodoList extends Component {
     return (
       <div>
         <TodoInput onNewTodoAdded={this.addNewTodo}/>
-        {this.state.todos.map(todo => <div>{todo}</div>)}
+        {this.state.todos.map((todo, i) => <div key={i}>{todo}</div>)}
       </div>
     )
   }

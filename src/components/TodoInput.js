@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
-import { dispatch } from 'rxjs/internal/observable/pairs';
 
 export default class TodoInput extends Component {
+  state = {input: ''}
   getInput = (event) => {
-    this.input = event.target.value
+    const input = event.target.value
+    this.setState({input})
   }
   dispatch = () => {
-    this.props.onNewTodoAdded(this.input)
+    this.props.onNewTodoAdded(this.state.input)
+    this.setState({ input: '' })
   }
   render() {
     return (
       <div>
-        <input onChange={this.getInput}/>
+        <input onChange={this.getInput} value={this.state.input}/>
         <button onClick={this.dispatch}>add</button>
       </div>
     )
