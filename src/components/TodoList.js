@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TodoInput from '../containers/TodoInput'
+import TodoInput from '../containers/TodoInputContainer'
 import Todos from './Todos'
 import { connect } from 'react-redux'
 
