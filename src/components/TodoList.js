@@ -5,16 +5,10 @@ import { connect } from 'react-redux'
 
 class TodoList extends Component {
   state = {todos: []}
-  addNewTodo = newTodo => {
-    this.props.dispatch({
-      type: 'ADD_TODO',
-      payload: newTodo
-    })
-  }
   render() {
     return (
       <div>
-        <TodoInput onNewTodoAdded={this.addNewTodo}/>
+        <TodoInput/>
         <Todos todos={this.props.todos}/>
       </div>
     )
