@@ -5,7 +5,12 @@ export default class Todos extends Component {
     const {todos} = this.props
     return (
       <div>
-        {todos.map((todo) => <li key={todo.id}>{todo.content}</li>)}
+        {todos.map((todo) => 
+		<li onClick={() => { this.props.updateStatus(todo)} } 
+		key={todo.id} 
+		style={{textDecoration: (todo.status=='completed') ? 'line-through' : 'none'}}>
+		{todo.content}
+		</li>)}
       </div>
     )
   }

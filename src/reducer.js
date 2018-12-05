@@ -13,6 +13,7 @@ export default (state = initialState, { type, payload }) => {
       return {
         todos: payload
       }
+	  
 
     default:
       return state
