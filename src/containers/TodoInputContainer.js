@@ -4,9 +4,24 @@ import TodoInput from '../components/TodoInput.js'
 
 const mapDispatchToProps = (dispatch) => ({
   addNewTodo: newTodo => {
-    dispatch({
-      type: 'ADD_TODO',
-      payload: newTodo
+    const newTodoItem = {
+      content: newTodo,
+      status: "active"
+    }
+    fetch("http://localhost:8080/api/todos", {
+      mode: 'cors',
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify(newTodoItem)
+    })
+    .then(res => res.json())
+    .then(({id, status, content}) => {
+      dispatch({
+        type: 'ADD_TODO',
+        payload: {id, status, content}
+      })
     })
   }
 })
