@@ -11,9 +11,7 @@ const mapDispatchToProps = (dispatch) => ({
     fetch("http://localhost:8080/api/todos", {
       mode: 'cors',
       method: 'POST',
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      }),
+      headers: new Headers({'Content-Type': 'application/json'}),
       body: JSON.stringify(newTodoItem)
     })
     .then(res => res.json())
